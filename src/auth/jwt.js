@@ -1,6 +1,7 @@
 const jwt = require('jsonwebtoken');
 
 const createToken = (dataForToken) => {
+  return jwt.sign(dataForToken, process.env.JWT_SECRET, {expiresIn: '24h'})
 }
 
 const checkToken = (req, res, next) => {
